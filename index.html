@@ -15,6 +15,20 @@
             line-height: 1.7;
         }
 
+        /* Header logo styling */
+        .logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 120px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
         h1, h2 {
             color: #ffffff;
             font-weight: 600;
@@ -41,13 +55,6 @@
             color: #9ca3af;
         }
 
-        footer {
-            margin-top: 50px;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
         .container {
             background: rgba(255, 255, 255, 0.03);
             padding: 30px;
@@ -56,8 +63,18 @@
             backdrop-filter: blur(4px);
         }
 
-        a {
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #8a8f99;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        footer a {
             color: #8ab4ff;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -65,58 +82,61 @@
 
 <div class="container">
 
-<h1>Fox Management — Privacy Policy</h1>
-<p class="muted"><strong>Effective Date:</strong> 10 February 2026</p>
-<p class="muted"><strong>Bot Owner:</strong> Arctic</p>
+    <!-- Header Logo -->
+    <img src="your-logo.png" alt="Fox Management Logo" class="logo">
 
-<h2>1. What Data We Collect</h2>
-<p>Fox Management collects the following information when performing moderation actions:</p>
-<ul>
-    <li><strong>User IDs</strong> (target member and moderator)</li>
-    <li><strong>Action type</strong> (warn, ban, kick, timeout)</li>
-    <li><strong>Reason</strong> for the action (if provided)</li>
-</ul>
+    <h1>Fox Management — Privacy Policy</h1>
+    <p class="muted"><strong>Effective Date:</strong> 10 February 2026</p>
+    <p class="muted"><strong>Bot Owner:</strong> Arctic</p>
 
-<h2>2. Why We Store This Data</h2>
-<p>This data is stored to:</p>
-<ul>
-    <li>Maintain moderation history for your server</li>
-    <li>Allow moderators to review past actions</li>
-    <li>Support appeal and dispute resolution</li>
-</ul>
+    <h2>1. What Data We Collect</h2>
+    <p>Fox Management collects the following information when performing moderation actions:</p>
+    <ul>
+        <li><strong>User IDs</strong> (target member and moderator)</li>
+        <li><strong>Action type</strong> (warn, ban, kick, timeout)</li>
+        <li><strong>Reason</strong> for the action (if provided)</li>
+    </ul>
 
-<h2>3. Data Retention</h2>
-<p>Moderation logs are stored unless:</p>
-<ul>
-    <li>Manually deleted by the server owner</li>
-    <li>A user requests removal</li>
-</ul>
+    <h2>2. Why We Store This Data</h2>
+    <p>This data is stored to:</p>
+    <ul>
+        <li>Maintain moderation history for your server</li>
+        <li>Allow moderators to review past actions</li>
+        <li>Support appeal and dispute resolution</li>
+    </ul>
 
-<h2>4. Who Can Access Data</h2>
-<p>Data access is limited to:</p>
-<ul>
-    <li>Server owner and administrators</li>
-    <li>Fox Management bot (for logging and appeals)</li>
-</ul>
-<p><strong>No data is shared with third parties.</strong></p>
+    <h2>3. Data Retention</h2>
+    <p>Moderation logs are stored unless:</p>
+    <ul>
+        <li>Manually deleted by the server owner</li>
+        <li>A user requests removal</li>
+    </ul>
 
-<h2>5. Data Removal Requests</h2>
-<p>Members may request deletion of their moderation data by contacting the server owner. The server owner may:</p>
-<ul>
-    <li>Approve deletion for minor infractions</li>
-    <li>Decline deletion for serious actions where history is needed for server safety</li>
-</ul>
+    <h2>4. Who Can Access Data</h2>
+    <p>Data access is limited to:</p>
+    <ul>
+        <li>Server owner and administrators</li>
+        <li>Fox Management bot (for logging and appeals)</li>
+    </ul>
+    <p><strong>No data is shared with third parties.</strong></p>
 
-<h2>6. Contact</h2>
-<p>For questions or data removal requests, contact:</p>
-<ul>
-    <li><strong>Discord:</strong> ArcticFox260 (or your server owner)</li>
-</ul>
+    <h2>5. Data Removal Requests</h2>
+    <p>Members may request deletion of their moderation data by contacting the server owner. The server owner may:</p>
+    <ul>
+        <li>Approve deletion for minor infractions</li>
+        <li>Decline deletion for serious actions where history is needed for server safety</li>
+    </ul>
+
+    <h2>6. Contact</h2>
+    <p>For questions or data removal requests, contact:</p>
+    <ul>
+        <li><strong>Discord:</strong> ArcticFox260 (or your server owner)</li>
+    </ul>
 
 </div>
 
 <footer>
-    <p>© 2026 Arctic — Fox Management Privacy Policy</p>
+    © 2026 Fox Management • Built for safe and transparent moderation  
 </footer>
 
 </body>
