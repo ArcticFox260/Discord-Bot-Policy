@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fox Management — Privacy Policy</title>
     <style>
-        /* Dark minimal theme */
         body {
             background-color: #0d0f12;
             color: #e5e5e5;
@@ -42,14 +41,6 @@
             color: #9ca3af;
         }
 
-        .warning {
-            background-color: rgba(255, 193, 7, 0.1);
-            border-left: 4px solid #ffc107;
-            padding: 12px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
         footer {
             margin-top: 50px;
             text-align: center;
@@ -78,157 +69,54 @@
 <p class="muted"><strong>Effective Date:</strong> 10 February 2026</p>
 <p class="muted"><strong>Bot Owner:</strong> Arctic</p>
 
-<h2>1. Information Fox Management Collects</h2>
-<p>Fox Management collects and stores the following information when moderation actions occur:</p>
+<h2>1. What Data We Collect</h2>
+<p>Fox Management collects the following information when performing moderation actions:</p>
 <ul>
-    <li><strong>Discord User ID</strong> of the member being actioned</li>
-    <li><strong>Discord User ID</strong> of the moderator performing the action</li>
-    <li><strong>Action type</strong> (e.g., Warn, Ban, Kick, Timeout)</li>
+    <li><strong>User IDs</strong> (target member and moderator)</li>
+    <li><strong>Action type</strong> (warn, ban, kick, timeout)</li>
     <li><strong>Reason</strong> for the action (if provided)</li>
-    <li><strong>Timestamp</strong> of the action</li>
-    <li><strong>Additional context</strong> depending on the command (e.g., duration for timeouts)</li>
-    <li><strong>Server/Guild ID</strong> where the action occurred</li>
-    <li><strong>Message content</strong> (only when a message is deleted by moderation)</li>
-    <li><strong>Channel information</strong> (for channel-related actions)</li>
-    <li><strong>Role information</strong> (for role-related actions)</li>
-    <li><strong>Voice channel activity logs</strong> (joins, moves, disconnections)</li>
-    <li><strong>Movie voting data</strong> (submissions, votes, usernames)</li>
 </ul>
 
-<div class="warning">
-<strong>⚠️ Important:</strong> Fox Management stores moderation logs including message content for deleted messages. Users should be aware that moderation actions and their context are permanently recorded.
-</div>
-
-<h2>2. Purpose of Data Collection</h2>
-<p>Fox Management stores this information to:</p>
+<h2>2. Why We Store This Data</h2>
+<p>This data is stored to:</p>
 <ul>
-    <li>Maintain accurate moderation history and audit trails</li>
-    <li>Allow moderators to review past actions and disputes</li>
-    <li>Support appeals and provide evidence for moderation decisions</li>
-    <li>Improve server safety and accountability</li>
-    <li>Document server administrative changes (channels, roles, settings)</li>
-    <li>Track temporary voice channel usage</li>
-    <li>Manage movie voting sessions</li>
-</ul>
-<p>This data is <strong>not</strong> used for:</p>
-<ul>
-    <li>Advertising or marketing</li>
-    <li>Analytics sold to third parties</li>
-    <li>Profiling or targeted content</li>
-    <li>Any purpose beyond server moderation and management</li>
+    <li>Maintain moderation history for your server</li>
+    <li>Allow moderators to review past actions</li>
+    <li>Support appeal and dispute resolution</li>
 </ul>
 
 <h2>3. Data Retention</h2>
-<p>Moderation logs are stored <strong>indefinitely</strong> unless:</p>
+<p>Moderation logs are stored unless:</p>
 <ul>
     <li>Manually deleted by the server owner</li>
-    <li>A user requests removal (see Section 6)</li>
-    <li>Discord requires deletion per TOS violation</li>
-    <li>The server is deleted</li>
-</ul>
-<p><strong>Historical note:</strong> Audit logs older than 90 days may be automatically pruned depending on database maintenance.</p>
-
-<h2>4. Who Can Access the Data</h2>
-<p>Access to stored data is limited to:</p>
-<ul>
-    <li>The server owner and designated administrators</li>
-    <li>Fox Management bot itself (for lookups, logging, and appeals processing)</li>
-    <li>The affected user (via appeals system, if applicable)</li>
-</ul>
-<p><strong>No data is shared with:</strong></p>
-<ul>
-    <li>Third-party services or analytics providers</li>
-    <li>Discord (except as required by their TOS)</li>
-    <li>Any external parties without explicit consent</li>
+    <li>A user requests removal</li>
 </ul>
 
-<h2>5. How the Data Is Stored</h2>
-<p>Data is stored in a private MongoDB database controlled by the server owner. Security measures include:</p>
+<h2>4. Who Can Access Data</h2>
+<p>Data access is limited to:</p>
 <ul>
-    <li>Restricted database access (connection strings stored in environment variables)</li>
-    <li>TLS/SSL encryption for database connections</li>
-    <li>Access limited to bot and authorized administrators only</li>
-    <li>No public endpoints or API exposure</li>
+    <li>Server owner and administrators</li>
+    <li>Fox Management bot (for logging and appeals)</li>
 </ul>
-<p><strong>Important:</strong> The server owner is responsible for securing their database credentials and access logs.</p>
+<p><strong>No data is shared with third parties.</strong></p>
 
-<h2>6. Appeals and User Data</h2>
-<p>Fox Management includes an <strong>appeals system</strong> that allows users to:</p>
+<h2>5. Data Removal Requests</h2>
+<p>Members may request deletion of their moderation data by contacting the server owner. The server owner may:</p>
 <ul>
-    <li>Submit appeals for moderation actions via DM</li>
-    <li>View their appeal status</li>
-    <li>Request review by server moderators</li>
-</ul>
-<p>Appeal data is stored separately and includes:</p>
-<ul>
-    <li>User ID and appeal message content</li>
-    <li>Appeal status (pending, approved, rejected)</li>
-    <li>Moderator responses (if provided)</li>
+    <li>Approve deletion for minor infractions</li>
+    <li>Decline deletion for serious actions where history is needed for server safety</li>
 </ul>
 
-<h2>7. User Data Removal Requests</h2>
-<p>Members may request removal of their stored moderation data by contacting the server owner. <strong>Important limitations:</strong></p>
+<h2>6. Contact</h2>
+<p>For questions or data removal requests, contact:</p>
 <ul>
-    <li>The server owner may decline deletion requests for serious actions (bans, harassment, safety violations)</li>
-    <li>Minor actions may be eligible for deletion upon request</li>
-    <li>Deletion requests should be made via the server owner or moderators, not the bot developer</li>
-    <li>No guaranteed timeline for deletion processing</li>
+    <li><strong>Discord:</strong> ArcticFox260 (or your server owner)</li>
 </ul>
-
-<h2>8. GDPR & Data Subject Rights</h2>
-<p>Users in jurisdictions with privacy laws (e.g., GDPR) have the right to:</p>
-<ul>
-    <li><strong>Access:</strong> Request a copy of their stored data</li>
-    <li><strong>Deletion:</strong> Request deletion (subject to server owner's retention needs)</li>
-    <li><strong>Portability:</strong> Request data in machine-readable format</li>
-</ul>
-<p>Submit requests to the server owner or <strong>Arctic#0000</strong> (Discord).</p>
-
-<h2>9. Third-Party Services</h2>
-<p>Fox Management integrates with:</p>
-<ul>
-    <li><strong>Twitch API:</strong> For streamer notifications (usernames collected for live alerts)</li>
-    <li><strong>Discord API:</strong> For all bot functionality (subject to Discord's privacy policy)</li>
-    <li><strong>MongoDB:</strong> For data storage (server owner controls credentials)</li>
-</ul>
-<p>Each service has its own privacy policy. This bot does not sell or share data with these services beyond necessary API calls.</p>
-
-<h2>10. Discord Developer Terms Compliance</h2>
-<p>Fox Management complies with <a href="https://discord.com/developers/docs/legal">Discord's Developer Terms of Service</a>:</p>
-<ul>
-    <li>No scraping or harvesting of Discord user data beyond what's necessary for bot operation</li>
-    <li>No storage of user credentials or tokens</li>
-    <li>Moderation data stored only for server management purposes</li>
-    <li>All data handling respects Discord's API rate limits and guidelines</li>
-    <li>Bot does not bypass Discord's security mechanisms or ToS</li>
-</ul>
-
-<h2>11. User Consent</h2>
-<p>By using Fox Management in your server:</p>
-<ul>
-    <li>You acknowledge this privacy policy</li>
-    <li>You consent to data collection as described above</li>
-    <li>You understand moderation actions and context are logged indefinitely</li>
-    <li>You agree the server owner controls data retention and access</li>
-</ul>
-<p><strong>Moderators and server members should be informed of this policy.</strong></p>
-
-<h2>12. Changes to This Policy</h2>
-<p>This policy may be updated as Fox Management evolves. Major changes will be communicated to server owners. The "Effective Date" will be updated when changes occur.</p>
-
-<h2>13. Contact & Data Requests</h2>
-<p>For questions, data removal requests, or privacy concerns, contact:</p>
-<ul>
-    <li><strong>Discord:</strong> ArcticFox260</li>
-    <li><strong>Server Owner:</strong> (primary contact for data access/deletion)</li>
-</ul>
-<p><strong>Note:</strong> Data requests should first go to your server owner, as they control the database.</p>
 
 </div>
 
 <footer>
     <p>© 2026 Arctic — Fox Management Privacy Policy</p>
-    <p><a href="https://discord.com/developers/docs/legal">Discord Developer Terms</a></p>
 </footer>
 
 </body>
