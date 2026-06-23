@@ -5,68 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fox Management — Privacy Policy</title>
     <style>
+        :root {
+            --bg-color: #0d0f12;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --text-main: #dbdee1;
+            --text-heading: #ffffff;
+            --text-muted: #949ba4;
+            --discord-blurple: #5865F2;
+            --discord-danger: #f23f43;
+            --accent-glow: rgba(88, 101, 242, 0.15);
+        }
+
         body {
-            background-color: #0d0f12;
-            color: #e5e5e5;
-            font-family: "Inter", Arial, Helvetica, sans-serif;
-            max-width: 900px;
-            margin: 40px auto;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: "GG Sans", "Inter", Arial, Helvetica, sans-serif;
+            max-width: 800px;
+            margin: 60px auto;
             padding: 0 20px;
-            line-height: 1.7;
-        }
-
-        h1, h2 {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        h1 {
-            font-size: 2.6rem;
-            margin-bottom: 10px;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        h2 {
-            margin-top: 35px;
-            border-left: 4px solid #5865F2;
-            padding-left: 10px;
-        }
-
-        ul {
-            margin-left: 20px;
-        }
-
-        .muted {
-            color: #9ca3af;
-        }
-
-        footer {
-            margin-top: 50px;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.9rem;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(4px);
+            background: rgba(20, 22, 26, 0.65);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
         }
 
-        a {
-            color: #8ab4ff;
+        h1 {
+            color: var(--text-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .meta-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+            font-size: 0.9rem;
+        }
+
+        .meta-item {
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+        }
+
+        .meta-item strong {
+            color: var(--text-main);
         }
 
         .scope-notice {
-            background: rgba(88, 101, 242, 0.1);
-            border: 1px solid #5865F2;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 25px;
-            margin-bottom: 25px;
+            background: rgba(88, 101, 242, 0.07);
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 35px;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .scope-notice strong {
+            color: #b5bac1;
+        }
+
+        .policy-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            color: var(--text-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background-color: var(--discord-blurple);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--discord-blurple);
+            position: absolute;
+            left: 4px;
+            font-weight: bold;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        .prohibited-box {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .disclaimer-section h2::before {
+            background-color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
         }
     </style>
 </head>
@@ -74,67 +168,88 @@
 
 <div class="container">
 
-<h1>Fox Management — Privacy Policy</h1>
-<p class="muted"><strong>Effective Date:</strong> 10 February 2026</p>
-<p class="muted"><strong>Updated Date:</strong> 24 June 2026</p>
-<p class="muted"><strong>Bot Owner:</strong> Arctic</p>
+    <h1>Fox Management — Privacy Policy</h1>
+    
+    <div class="meta-wrapper">
+        <span class="meta-item"><strong>Effective:</strong> 10 Feb 2026</span>
+        <span class="meta-item"><strong>Updated:</strong> 24 June 2026</span>
+        <span class="meta-item"><strong>Owner:</strong> Arctic</span>
+    </div>
 
-<div class="scope-notice">
-    <strong>Application Scope:</strong> Fox Management is a custom, private application built solely for use within the <strong>Arctic's Lounge</strong> Discord server. The bot is intentionally private, cannot be invited to external servers, and exclusively processes data belonging to members interacting within this specific community.
-</div>
+    <div class="scope-notice">
+        <strong>Application Scope:</strong> Fox Management is a custom, private application built solely for use within the <strong>Arctic's Lounge</strong> Discord server. The bot is intentionally private, cannot be invited to external servers, and exclusively processes data belonging to members interacting within this specific community.
+    </div>
 
-<h2>1. What Data We Collect</h2>
-<p>Fox Management processes server and user data to provide auditing, moderation, and appeal tools. The specific data elements collected and processed include:</p>
-<ul>
-    <li><strong>User Profiles & Identifiers:</strong> Discord User IDs, usernames, display names, guild member nicknames (old and new), account creation timestamps, and server join timestamps.</li>
-    <li><strong>Server Metadata & Interactions:</strong> Server IDs (Guild IDs), Channel IDs, Role IDs, role assignment changes, channel creation/deletion logs, and server settings adjustments.</li>
-    <li><strong>Activity Logs:</strong> Voice channel states (joins, moves, disconnects, server mutes/deafens).</li>
-    <li><strong>Appeals Data:</strong> Text submitted via the appeal system, including user-provided appeal reasons, appeal status updates, and moderator review notes.</li>
-    <li><strong>Transient Data (In-Memory Only):</strong> Content from deleted or edited messages is processed strictly in-memory to generate immediate staff audit logs within Discord. This specific text data is never saved, cached, or written to our long-term databases.</li>
-</ul>
+    <div class="policy-section">
+        <h2>1. What Data We Collect</h2>
+        <p>Fox Management processes server and user data to provide auditing, moderation, and appeal tools. The specific data elements collected and processed include:</p>
+        <ul>
+            <li><strong>User Profiles & Identifiers:</strong> Discord User IDs, usernames, display names, guild member nicknames (old and new), account creation timestamps, and server join timestamps.</li>
+            <li><strong>Server Metadata & Interactions:</strong> Server IDs (Guild IDs), Channel IDs, Role IDs, role assignment changes, channel creation/deletion logs, and server settings adjustments.</li>
+            <li><strong>Activity Logs:</strong> Voice channel states (joins, moves, disconnects, server mutes/deafens).</li>
+            <li><strong>Appeals Data:</strong> Text submitted via the appeal system, including user-provided appeal reasons, appeal status updates, and moderator review notes.</li>
+            <li><strong>Transient Data (In-Memory Only):</strong> Content from deleted or edited messages is processed strictly in-memory to generate immediate staff audit logs within Discord. This specific text data is never saved, cached, or written to our long-term databases.</li>
+        </ul>
+    </div>
 
-<h2>2. Why We Store This Data</h2>
-<p>This data is stored and processed to:</p>
-<ul>
-    <li>Maintain a short-term moderation history for the Arctic's Lounge Discord server.</li>
-    <li>Allow authorized server administrators and moderators to review past behavioral actions.</li>
-    <li>Support the server’s appeal, dispute resolution, and security auditing systems.</li>
-</ul>
-<p><strong>Prohibited Use Disclaimer:</strong> We do not sell, trade, or lease your data. We do not track users across multiple non-affiliated servers, build behavioral user profiles, or use your data to train machine learning or AI models.</p>
+    <div class="policy-section">
+        <h2>2. Why We Store This Data</h2>
+        <p>This data is stored and processed to:</p>
+        <ul>
+            <li>Maintain a short-term moderation history for the Arctic's Lounge Discord server.</li>
+            <li>Allow authorized server administrators and moderators to review past behavioral actions.</li>
+            <li>Support the server’s appeal, dispute resolution, and security auditing systems.</li>
+        </ul>
+        <div class="prohibited-box">
+            <strong>Prohibited Use Disclaimer:</strong> We do not sell, trade, or lease your data. We do not track users across multiple non-affiliated servers, build behavioral user profiles, or use your data to train machine learning or AI models.
+        </div>
+    </div>
 
-<h2>3. Data Retention</h2>
-<p>We implement strict data minimization and do not keep data forever:</p>
-<ul>
-    <li><strong>90-Day Lifespan:</strong> All database logs, moderation history metadata, activity tracking logs, and appeal records are automatically and permanently purged after 90 days via database Time-To-Live (TTL) mechanisms.</li>
-    <li><strong>Automatic Wipe on Leave:</strong> When a user leaves the server, the application automatically executes a cleanup script to scrub all linked historical database footprints associated with that user profile.</li>
-</ul>
+    <div class="policy-section">
+        <h2>3. Data Retention</h2>
+        <p>We implement strict data minimization and do not keep data forever:</p>
+        <ul>
+            <li><strong>90-Day Lifespan:</strong> All database logs, moderation history metadata, activity tracking logs, and appeal records are automatically and permanently purged after 90 days via database Time-To-Live (TTL) mechanisms.</li>
+            <li><strong>Automatic Wipe on Leave:</strong> When a user leaves the server, the application automatically executes a cleanup script to scrub all linked historical database footprints associated with that user profile.</li>
+        </ul>
+    </div>
 
-<h2>4. Who Can Access Data</h2>
-<p>Data access is restricted strictly to:</p>
-<ul>
-    <li>Server owner</li>
-    <li>Authorized server moderators and appeals staff</li>
-    <li>The Fox Management bot backend infrastructure</li>
-</ul>
-<p><strong>No data is shared with third parties, advertisement brokers, or analytical services.</strong></p>
+    <div class="policy-section">
+        <h2>4. Who Can Access Data</h2>
+        <p>Data access is restricted strictly to:</p>
+        <ul>
+            <li>The Server Owner.</li>
+            <li>Authorized server moderators and appeals staff.</li>
+            <li>The Fox Management bot backend infrastructure.</li>
+        </ul>
+        <p style="margin-top: 12px; margin-bottom: 0;"><strong>No data is shared with third parties, advertisement brokers, or analytical services.</strong></p>
+    </div>
 
-<h2>5. Data Removal Requests</h2>
-<p>Users retain absolute control over their data footprint. Members may request manual deletion of their stored moderation history or appeal data at any time by contacting the server owner. The server owner may:</p>
-<ul>
-    <li>Approve and manually execute data deletion from the database.</li>
-</ul>
+    <div class="policy-section">
+        <h2>5. Data Removal Requests</h2>
+        <p>Users retain absolute control over their data footprint. Members may request manual deletion of their stored moderation history or appeal data at any time by contacting the server owner. The server owner may:</p>
+        <ul>
+            <li>Approve and manually execute data deletion from the database.</li>
+        </ul>
+    </div>
 
-<h2>6. Changes to This Policy</h2>
-<p>This policy may be updated at any time to reflect feature modifications or changes to Discord's Developer Terms. Changes will be reflected by updating the "Updated Date" above.</p>
+    <div class="policy-section">
+        <h2>6. Changes to This Policy</h2>
+        <p>This policy may be updated at any time to reflect feature modifications or changes to Discord's Developer Terms. Changes will be reflected by updating the "Updated Date" above.</p>
+    </div>
 
-<h2>7. Disclaimer</h2>
-<p>Fox Management is a third-party bot and is <strong>not affiliated with Discord Inc.</strong> Use of this bot is subject to Discord's Terms of Service and Community Guidelines. The server owner is responsible for ensuring compliance with applicable laws and Discord's policies.</p>
+    <div class="policy-section disclaimer-section">
+        <h2>7. Disclaimer</h2>
+        <p>Fox Management is a third-party bot and is <strong>not affiliated with Discord Inc.</strong> Use of this bot is subject to Discord's Terms of Service and Community Guidelines. The server owner is responsible for ensuring compliance with applicable laws and Discord's policies.</p>
+    </div>
 
-<h2>8. Contact</h2>
-<p>For questions or manual data removal requests, contact:</p>
-<ul>
-    <li><strong>Discord:</strong> ArcticFox260</li>
-</ul>
+    <div class="policy-section">
+        <h2>8. Contact</h2>
+        <p>For questions or manual data removal requests, contact:</p>
+        <ul>
+            <li><strong>Discord:</strong> ArcticFox260</li>
+        </ul>
+    </div>
 
 </div>
 
