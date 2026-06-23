@@ -70,49 +70,54 @@
 <p class="muted"><strong>Bot Owner:</strong> Arctic</p>
 
 <h2>1. What Data We Collect</h2>
-<p>Fox Management collects the following user information when performing moderation actions:</p>
+<p>Fox Management processes server and user data to provide auditing, moderation, and appeal tools. The specific data elements collected and processed include:</p>
 <ul>
-    <li><strong>User IDs</strong> (target member and moderator)</li>
+    <li><strong>User Profiles & Identifiers:</strong> Discord User IDs, usernames, display names, guild member nicknames (old and new), account creation timestamps, and server join timestamps.</li>
+    <li><strong>Server Metadata & Interactions:</strong> Server IDs (Guild IDs), Channel IDs, Role IDs, role assignment changes, channel creation/deletion logs, and server settings adjustments.</li>
+    <li><strong>Activity Logs:</strong> Voice channel states (joins, moves, disconnects, server mutes/deafens).</li>
+    <li><strong>Appeals Data:</strong> Text submitted via the appeal system, including user-provided appeal reasons, appeal status updates, and moderator review notes.</li>
+    <li><strong>Transient Data (In-Memory Only):</strong> Content from deleted or edited messages is processed strictly in-memory to generate immediate staff audit logs within Discord. This specific text data is never saved, cached, or written to our long-term databases.</li>
 </ul>
 
 <h2>2. Why We Store This Data</h2>
-<p>This data is stored to:</p>
+<p>This data is stored and processed to:</p>
 <ul>
-    <li>Maintain moderation history for Arctic's Lounge discord server</li>
-    <li>Allow moderators to review past actions</li>
-    <li>Support appeal and dispute resolution</li>
+    <li>Maintain a short-term moderation history for the Arctic's Lounge Discord server.</li>
+    <li>Allow authorized server administrators and moderators to review past behavioral actions.</li>
+    <li>Support the server’s appeal, dispute resolution, and security auditing systems.</li>
 </ul>
+<p><strong>Prohibited Use Disclaimer:</strong> We do not sell, trade, or lease your data. We do not track users across multiple non-affiliated servers, build behavioral user profiles, or use your data to train machine learning or AI models.</p>
 
 <h2>3. Data Retention</h2>
-<p>Moderation logs are stored forever unless:</p>
+<p>We implement strict data minimization and do not keep data forever:</p>
 <ul>
-    <li>Manually deleted by the server owner</li>
-    <li>A user requests removal</li>
-    <li>A user leaves the server (the bot will auto remove any data linked</li>
+    <li><strong>90-Day Lifespan:</strong> All database logs, moderation history metadata, activity tracking logs, and appeal records are automatically and permanently purged after 90 days via database Time-To-Live (TTL) mechanisms.</li>
+    <li><strong>Automatic Wipe on Leave:</strong> When a user leaves the server, the application automatically executes a cleanup script to scrub all linked historical database footprints associated with that user profile.</li>
 </ul>
 
 <h2>4. Who Can Access Data</h2>
-<p>Data access is limited to:</p>
+<p>Data access is restricted strictly to:</p>
 <ul>
     <li>Server owner</li>
-    <li>Fox Management bot (for logging and appeals)</li>
+    <li>Authorized server moderators and appeals staff</li>
+    <li>The Fox Management bot backend infrastructure</li>
 </ul>
-<p><strong>No data is shared with third parties.</strong></p>
+<p><strong>No data is shared with third parties, advertisement brokers, or analytical services.</strong></p>
 
 <h2>5. Data Removal Requests</h2>
-<p>Members may request deletion of their moderation data by contacting the server owner. The server owner may:</p>
+<p>Users retain absolute control over their data footprint. Members may request manual deletion of their stored moderation history or appeal data at any time by contacting the server owner. The server owner may:</p>
 <ul>
-    <li>Approve deletion</li>
+    <li>Approve and manually execute data deletion from the database.</li>
 </ul>
 
 <h2>6. Changes to This Policy</h2>
-<p>This policy may be updated at any time. Changes will be reflected by updating the "Effective Date" above.</p>
+<p>This policy may be updated at any time to reflect feature modifications or changes to Discord's Developer Terms. Changes will be reflected by updating the "Effective Date" above.</p>
 
 <h2>7. Disclaimer</h2>
 <p>Fox Management is a third-party bot and is <strong>not affiliated with Discord Inc.</strong> Use of this bot is subject to Discord's Terms of Service and Community Guidelines. The server owner is responsible for ensuring compliance with applicable laws and Discord's policies.</p>
 
 <h2>8. Contact</h2>
-<p>For questions or data removal requests, contact:</p>
+<p>For questions or manual data removal requests, contact:</p>
 <ul>
     <li><strong>Discord:</strong> ArcticFox260</li>
 </ul>
