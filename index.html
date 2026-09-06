@@ -143,6 +143,15 @@
             font-weight: 600;
         }
 
+        a {
+            color: #8ea1e1;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         .prohibited-box {
             margin-top: 16px;
             padding-top: 14px;
@@ -169,86 +178,137 @@
 <div class="container">
 
     <h1>Fox Management — Privacy Policy</h1>
-    
+
     <div class="meta-wrapper">
         <span class="meta-item"><strong>Effective:</strong> 10 Feb 2026</span>
-        <span class="meta-item"><strong>Updated:</strong> 24 June 2026</span>
+        <span class="meta-item"><strong>Updated:</strong> 6 Sep 2026</span>
         <span class="meta-item"><strong>Owner:</strong> Arctic</span>
     </div>
 
     <div class="scope-notice">
-        <strong>Application Scope:</strong> Fox Management is a custom, private application built solely for use within the <strong>Arctic's Lounge</strong> Discord server. The bot is intentionally private, cannot be invited to external servers, and exclusively processes data belonging to members interacting within this specific community.
+        <strong>Application Scope:</strong> Fox Management is a custom, private application built solely for use within the <strong>Arctic's Lounge</strong> Discord server. The bot is intentionally private, cannot be invited to external servers, and processes data only for members and activity in this community. It is not listed as a public Discord app.
     </div>
 
     <div class="policy-section">
         <h2>1. What Data We Collect</h2>
-        <p>Fox Management processes server and user data to provide auditing, moderation, and appeal tools. The specific data elements collected and processed include:</p>
+        <p>Fox Management processes Discord API data and related operational data to provide moderation, auditing, appeals, community tools, and go-live alerts. Data we collect or process includes:</p>
         <ul>
-            <li><strong>User Profiles & Identifiers:</strong> Discord User IDs, usernames, display names, guild member nicknames (old and new), account creation timestamps, and server join timestamps.</li>
-            <li><strong>Server Metadata & Interactions:</strong> Server IDs (Guild IDs), Channel IDs, Role IDs, role assignment changes, channel creation/deletion logs, and server settings adjustments.</li>
-            <li><strong>Activity Logs:</strong> Voice channel states (joins, moves, disconnects, server mutes/deafens).</li>
-            <li><strong>Appeals Data:</strong> Text submitted via the appeal system, including user-provided appeal reasons, appeal status updates, and moderator review notes.</li>
-            <li><strong>Transient Data (In-Memory Only):</strong> Content from deleted or edited messages is processed strictly in-memory to generate immediate staff audit logs within Discord. This specific text data is never saved, cached, or written to our long-term databases.</li>
+            <li><strong>User profiles &amp; identifiers:</strong> Discord user IDs, usernames, display names, nicknames (old and new), avatar URLs (used only to generate welcome images), account creation timestamps, and server join timestamps.</li>
+            <li><strong>Server metadata:</strong> Guild IDs, channel IDs, role IDs, role assignment changes, channel create/update/delete events, and server setting changes needed for staff audit logs.</li>
+            <li><strong>Moderation records:</strong> Action type (ban, kick, timeout, warn, and related staff actions), target user ID, moderator ID, reason text, optional duration, and timestamps.</li>
+            <li><strong>Voice activity (limited):</strong> Staff-initiated voice moves, disconnects, and server mute/deafen events. Routine self-joins to voice channels are not stored in the database.</li>
+            <li><strong>Appeals:</strong> Appeal text you submit, action type appealed, status (pending / approved / denied), reviewer identity, review notes, timestamps, and a permanent-denial flag if staff apply one. Only one pending appeal per user is allowed.</li>
+            <li><strong>Temporary voice rooms:</strong> Channel ID, creator user ID, channel name, guild ID, creation/last-activity times, and short-lived creation cooldowns. Names are checked against a local profanity list.</li>
+            <li><strong>Counting game:</strong> Current count, highest count, last participating user ID, and last audited message ID. Message text is read only to validate numbers.</li>
+            <li><strong>Twitch alerts:</strong> Twitch usernames added by staff, stream IDs, live/offline state, and last-live timestamps. If a tracked streamer also shows as live in Discord presence, we may store that Discord user ID with a streaming flag so we do not double-alert.</li>
+            <li><strong>Message content (transient):</strong> Message text is processed in memory for profanity checks, the counting channel, and staff delete/edit audit embeds posted in Discord. Delete and edit <em>content</em> is not written to our long-term database (Mongo records store a privacy placeholder instead). Attachments and files are not copied into our database.</li>
         </ul>
     </div>
 
     <div class="policy-section">
-        <h2>2. Why We Store This Data</h2>
-        <p>This data is stored and processed to:</p>
+        <h2>2. Discord Privileged Intents</h2>
+        <p>To operate, Fox Management uses Discord privileged intents: <strong>Server Members</strong>, <strong>Presences</strong>, and <strong>Message Content</strong>. These are used only for stated bot features (join/leave and member updates, tracked Twitch presence, moderation logging, profanity checks, and counting).</p>
+        <p style="margin-bottom: 0;">As of Discord’s 10 June 2026 privileged-intent review changes, apps at or above 10,000 unique users must apply (and reapply annually) to keep this access. This bot is a private, single-server app. If that threshold is ever reached, we will complete Discord’s review with a use case that matches this policy.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>3. Why We Process This Data</h2>
+        <p>We process this data only as needed to:</p>
         <ul>
-            <li>Maintain a short-term moderation history for the Arctic's Lounge Discord server.</li>
-            <li>Allow authorized server administrators and moderators to review past behavioral actions.</li>
-            <li>Support the server’s appeal, dispute resolution, and security auditing systems.</li>
+            <li>Run moderation, staff audit logs, and <code>/hist</code> history for Arctic's Lounge.</li>
+            <li>Operate appeals, including DM notices after a moderation action and staff review buttons.</li>
+            <li>Provide welcome cards, temporary voice rooms, counting, and Twitch go-live alerts.</li>
+            <li>Protect server safety (for example, keeping ban and permanent-appeal-denial records so they are not wiped when someone leaves).</li>
         </ul>
         <div class="prohibited-box">
-            <strong>Prohibited Use Disclaimer:</strong> We do not sell, trade, or lease your data. We do not track users across multiple non-affiliated servers, build behavioral user profiles, or use your data to train machine learning or AI models.
+            <strong>Prohibited uses:</strong> We do not sell, license, trade, or lease API data. We do not share it with data brokers or advertising networks. We do not track users across unaffiliated Discord servers, build advertising or eligibility profiles, or use Discord message content or other API data to train machine learning or AI models (including large language models), consistent with Discord’s Developer Policy.
         </div>
     </div>
 
     <div class="policy-section">
-        <h2>3. Data Retention</h2>
-        <p>We implement strict data minimization and do not keep data forever:</p>
+        <h2>4. Data Retention</h2>
+        <p>We keep data only while it is needed for the features above, then delete it:</p>
         <ul>
-            <li><strong>90-Day Lifespan:</strong> All database logs, moderation history metadata, activity tracking logs, and appeal records are automatically and permanently purged after 90 days via database Time-To-Live (TTL) mechanisms.</li>
-            <li><strong>Automatic Wipe on Leave:</strong> When a user leaves the server, the application automatically executes a cleanup script to scrub all linked historical database footprints associated with that user profile.</li>
+            <li><strong>Moderation history (MongoDB):</strong> Automatically deleted after <strong>90 days</strong> by a time-to-live index.</li>
+            <li><strong>Appeals:</strong> Ordinary appeal records are deleted after <strong>90 days</strong>. Records marked permanently denied are kept until staff remove them, so the denial can still be enforced.</li>
+            <li><strong>When you leave the server:</strong> We delete ephemeral Twitch presence-alert state tied to your Discord user ID. We <strong>do not</strong> wipe moderation history or appeals on leave. Ban, kick, timeout, and similar records stay until the 90-day TTL (or longer for permanent appeal denials).</li>
+            <li><strong>Twitch tracker list:</strong> Kept until staff remove the username.</li>
+            <li><strong>Counting state:</strong> Kept as ongoing game state until reset.</li>
+            <li><strong>Temporary voice:</strong> Removed when the room is deleted or cleaned up as empty/inactive.</li>
+            <li><strong>In-memory only:</strong> EventSub replay IDs (~10 minutes), recent ban/kick markers (under two minutes), and message text used for filters or Discord staff embeds.</li>
         </ul>
+        <p style="margin-top: 12px; margin-bottom: 0;">Staff audit embeds posted in Discord remain visible according to that channel’s Discord retention, which is separate from our database TTL.</p>
     </div>
 
     <div class="policy-section">
-        <h2>4. Who Can Access Data</h2>
-        <p>Data access is restricted strictly to:</p>
+        <h2>5. Who Can Access Data &amp; Sharing</h2>
+        <p>Access is limited to:</p>
         <ul>
-            <li>The Server Owner.</li>
-            <li>Authorized server moderators and appeals staff.</li>
-            <li>The Fox Management bot backend infrastructure.</li>
+            <li>The server owner.</li>
+            <li>Authorized moderators and appeals staff (via Discord roles and staff-only review controls).</li>
+            <li>The Fox Management backend (the bot process and its database).</li>
         </ul>
-        <p style="margin-top: 12px; margin-bottom: 0;"><strong>No data is shared with third parties, advertisement brokers, or analytical services.</strong></p>
+        <p>We share or transmit data only as follows:</p>
+        <ul>
+            <li><strong>Discord:</strong> The bot uses Discord’s API to run commands, logs, DMs, and server actions. Discord’s own <a href="https://discord.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> applies to Discord.</li>
+            <li><strong>Twitch:</strong> For staff-tracked channels we call Twitch Helix and EventSub (stream title, game, viewer count, thumbnails, live status). We do <strong>not</strong> send Discord user IDs, messages, or member lists to Twitch.</li>
+            <li><strong>Hosting / database providers:</strong> Infrastructure that stores or runs the bot (service providers), used only to operate Fox Management, with access restricted to the operator.</li>
+            <li><strong>Legal requirement:</strong> If required by applicable law or a valid legal process.</li>
+        </ul>
+        <p style="margin-bottom: 0;">We do not share API data with advertisers or analytics brokers. Direct messages from the bot are limited to core functionality (for example, a moderation notice with an appeal button). We do not contact you off Discord using API data.</p>
     </div>
 
     <div class="policy-section">
-        <h2>5. Data Removal Requests</h2>
-        <p>Users retain absolute control over their data footprint. Members may request manual deletion of their stored moderation history or appeal data at any time by contacting the server owner. The server owner may:</p>
+        <h2>6. Your Rights &amp; Deletion</h2>
+        <p>Under Discord’s Developer Terms you can ask us to update or delete API data we hold about you. Depending on where you live, you may also have rights under laws such as the Australian Privacy Principles, GDPR / UK GDPR, or CCPA / CPRA (access, correction, deletion, and related rights).</p>
+        <p>To request access, correction, or deletion, contact <strong>ArcticFox260</strong> on Discord (see Contact). We will action deletion promptly unless we must retain a record because:</p>
         <ul>
-            <li>Approve and manually execute data deletion from the database.</li>
+            <li>it is still needed for an active enforcement record (for example an unexpired ban or a permanent appeal denial); or</li>
+            <li>applicable law requires us to keep it.</li>
         </ul>
+        <p style="margin-bottom: 0;">If we stop operating the bot, or Discord requires deletion of API data, we will delete stored API data except where law requires retention.</p>
     </div>
 
     <div class="policy-section">
-        <h2>6. Changes to This Policy</h2>
-        <p>This policy may be updated at any time to reflect feature modifications or changes to Discord's Developer Terms. Changes will be reflected by updating the "Updated Date" above.</p>
+        <h2>7. Children</h2>
+        <p style="margin-bottom: 0;">Fox Management is not directed at children. Discord requires users to be at least 13, or older where local law sets a higher digital-consent age. We do not knowingly collect Discord API data about anyone Discord does not permit on the service. If you believe we have, contact us and we will delete it.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>8. Security</h2>
+        <p style="margin-bottom: 0;">We use commercially reasonable safeguards, including TLS for database connections, staff-only Discord access for logs and appeal review, HMAC verification of Twitch EventSub webhooks, and binding the webhook listener to localhost behind a reverse proxy. No method of transmission or storage is fully guaranteed. If there is unauthorized access to API data, we will notify affected users and Discord as required by Discord’s Developer Terms and applicable law (including Australia’s Notifiable Data Breaches scheme where it applies).</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>9. Applicable Terms &amp; Laws</h2>
+        <p>Use of Fox Management is also subject to:</p>
+        <ul>
+            <li><a href="https://discord.com/terms" target="_blank" rel="noopener">Discord Terms of Service</a> and <a href="https://discord.com/guidelines" target="_blank" rel="noopener">Community Guidelines</a></li>
+            <li><a href="https://support-dev.discord.com/hc/en-us/articles/8562894815383-Discord-Developer-Terms-of-Service" target="_blank" rel="noopener">Discord Developer Terms of Service</a> (effective 8 July 2024)</li>
+            <li><a href="https://support-dev.discord.com/hc/en-us/articles/8563934450327-Discord-Developer-Policy" target="_blank" rel="noopener">Discord Developer Policy</a></li>
+            <li>Twitch’s terms for API / EventSub use, for go-live features</li>
+        </ul>
+        <p>We handle personal information in line with the <strong>Australian Privacy Act 1988 (Cth)</strong> as amended, including by the <strong>Privacy and Other Legislation Amendment Act 2024</strong> (Australian Privacy Principles, data-security and destruction expectations, and the Notifiable Data Breaches scheme). Members in other regions may have additional rights under GDPR, UK GDPR, LGPD, CCPA, or CPRA; Discord’s Developer Terms require us to respect those frameworks where they apply.</p>
+        <p style="margin-bottom: 0;">As of this update, Australia’s further Privacy Amendment (Personal Data Protection) Bill 2026 is still an exposure draft (consultation through mid-September 2026) and is not yet law. If it is enacted, we will review this policy and our retention/deletion practices against the new rules.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>10. Changes to This Policy</h2>
+        <p style="margin-bottom: 0;">We may update this policy when bot features change or when Discord or applicable law changes. The “Updated” date at the top is the current version. Material changes that affect how we process member data will be reflected here before or when those features go live.</p>
     </div>
 
     <div class="policy-section disclaimer-section">
-        <h2>7. Disclaimer</h2>
-        <p>Fox Management is a third-party bot and is <strong>not affiliated with Discord Inc.</strong> Use of this bot is subject to Discord's Terms of Service and Community Guidelines. The server owner is responsible for ensuring compliance with applicable laws and Discord's policies.</p>
+        <h2>11. Disclaimer</h2>
+        <p style="margin-bottom: 0;">Fox Management is an independent third-party bot and is <strong>not affiliated with, endorsed by, or partnered with Discord Inc. or Twitch / Amazon.</strong> Discord and Twitch remain responsible for their own platforms. This page describes our practices; it is not legal advice. The server owner is responsible for operating the bot in line with Discord’s terms and applicable law.</p>
     </div>
 
     <div class="policy-section">
-        <h2>8. Contact</h2>
-        <p>For questions or manual data removal requests, contact:</p>
+        <h2>12. Contact</h2>
+        <p>For questions, reports about the bot, or access / deletion requests:</p>
         <ul>
             <li><strong>Discord:</strong> ArcticFox260</li>
         </ul>
+        <p style="margin-bottom: 0;">Please include the Discord user ID the request relates to so we can find and action the right records.</p>
     </div>
 
 </div>
