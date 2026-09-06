@@ -191,24 +191,24 @@
 
     <div class="policy-section">
         <h2>1. What Data We Collect</h2>
-        <p>Fox Management processes Discord API data and related operational data to provide moderation, auditing, appeals, community tools, and go-live alerts. Data we collect or process includes:</p>
+        <p>Fox Management processes server and user data to provide auditing, moderation, appeals, and related server features. The data collected includes:</p>
         <ul>
-            <li><strong>User profiles &amp; identifiers:</strong> Discord user IDs, usernames, display names, nicknames (old and new), avatar URLs (used only to generate welcome images), account creation timestamps, and server join timestamps.</li>
-            <li><strong>Server metadata:</strong> Guild IDs, channel IDs, role IDs, role assignment changes, channel create/update/delete events, and server setting changes needed for staff audit logs.</li>
-            <li><strong>Moderation records:</strong> Action type (ban, kick, timeout, warn, and related staff actions), target user ID, moderator ID, reason text, optional duration, and timestamps.</li>
-            <li><strong>Voice activity (limited):</strong> Staff-initiated voice moves, disconnects, and server mute/deafen events. Routine self-joins to voice channels are not stored in the database.</li>
-            <li><strong>Appeals:</strong> Appeal text you submit, action type appealed, status (pending / approved / denied), reviewer identity, review notes, timestamps, and a permanent-denial flag if staff apply one. Only one pending appeal per user is allowed.</li>
-            <li><strong>Temporary voice rooms:</strong> Channel ID, creator user ID, channel name, guild ID, creation/last-activity times, and short-lived creation cooldowns. Names are checked against a local profanity list.</li>
-            <li><strong>Counting game:</strong> Current count, highest count, last participating user ID, and last audited message ID. Message text is read only to validate numbers.</li>
-            <li><strong>Twitch alerts:</strong> Twitch usernames added by staff, stream IDs, live/offline state, and last-live timestamps. If a tracked streamer also shows as live in Discord presence, we may store that Discord user ID with a streaming flag so we do not double-alert.</li>
-            <li><strong>Message content (transient):</strong> Message text is processed in memory for profanity checks, the counting channel, and staff delete/edit audit embeds posted in Discord. Delete and edit <em>content</em> is not written to our long-term database (Mongo records store a privacy placeholder instead). Attachments and files are not copied into our database.</li>
+            <li><strong>User Profiles &amp; Identifiers:</strong> Discord User IDs, usernames, display names, nicknames (old and new), account creation timestamps, and server join timestamps. Avatars are used for welcome cards and are not stored in the database.</li>
+            <li><strong>Server Metadata &amp; Interactions:</strong> Server IDs (Guild IDs), Channel IDs, Role IDs, role assignment changes, channel creation/deletion logs, and server settings adjustments.</li>
+            <li><strong>Moderation Records:</strong> Action type (ban, kick, timeout, warn, and related staff actions), target user ID, moderator ID, reason, duration, and timestamps.</li>
+            <li><strong>Voice Activity:</strong> Disconnects, staff-initiated moves, and server mute/deafen events. Self-joins are not stored.</li>
+            <li><strong>Appeals Data:</strong> Appeal text, action type, status, reviewer, review notes, timestamps, and permanent-denial status where applied.</li>
+            <li><strong>Temporary Voice:</strong> Channel ID, creator ID, channel name, guild ID, and activity timestamps.</li>
+            <li><strong>Counting:</strong> Current count, highest count, and last user ID.</li>
+            <li><strong>Twitch Alerts:</strong> Tracked Twitch usernames, stream IDs, live status, stream title, game, viewer count, and thumbnails. Discord user IDs when a member is streaming a tracked channel.</li>
+            <li><strong>Transient Data (In-Memory Only):</strong> Deleted and edited message content is used to post staff audit logs in Discord and is not written to the database. Message content is also read in memory for profanity filtering and the counting channel. Attachments are not stored.</li>
         </ul>
     </div>
 
     <div class="policy-section">
         <h2>2. Discord Privileged Intents</h2>
-        <p>To operate, Fox Management uses Discord privileged intents: <strong>Server Members</strong>, <strong>Presences</strong>, and <strong>Message Content</strong>. These are used only for stated bot features (join/leave and member updates, tracked Twitch presence, moderation logging, profanity checks, and counting).</p>
-        <p style="margin-bottom: 0;">As of Discord’s 10 June 2026 privileged-intent review changes, apps at or above 10,000 unique users must apply (and reapply annually) to keep this access. This bot is a private, single-server app. If that threshold is ever reached, we will complete Discord’s review with a use case that matches this policy.</p>
+        <p>Fox Management uses Discord privileged intents: <strong>Server Members</strong>, <strong>Presences</strong>, and <strong>Message Content</strong>. They are used for join/leave and member updates, Twitch live detection, moderation logs, profanity checks, and counting.</p>
+        <p style="margin-bottom: 0;">Discord requires a review for these intents if an app reaches 10,000 users, with yearly reapplication after that. This bot is private to one server.</p>
     </div>
 
     <div class="policy-section">
@@ -231,7 +231,7 @@
         <ul>
             <li><strong>Moderation history (MongoDB):</strong> Automatically deleted after <strong>90 days</strong> by a time-to-live index.</li>
             <li><strong>Appeals:</strong> Ordinary appeal records are deleted after <strong>90 days</strong>. Records marked permanently denied are kept until staff remove them, so the denial can still be enforced.</li>
-            <li><strong>When you leave the server:</strong> We delete ephemeral Twitch presence-alert state tied to your Discord user ID. We <strong>do not</strong> wipe moderation history or appeals on leave. Ban, kick, timeout, and similar records stay until the 90-day TTL (or longer for permanent appeal denials).</li>
+            <li><strong>When you leave the server:</strong> Streaming status for that user is deleted. Moderation history and appeals are not. Ban, kick, timeout, and similar records stay until the 90-day TTL (or longer for permanent appeal denials).</li>
             <li><strong>Twitch tracker list:</strong> Kept until staff remove the username.</li>
             <li><strong>Counting state:</strong> Kept as ongoing game state until reset.</li>
             <li><strong>Temporary voice:</strong> Removed when the room is deleted or cleaned up as empty/inactive.</li>
